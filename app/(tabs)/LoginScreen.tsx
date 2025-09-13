@@ -26,7 +26,7 @@ const LoginScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Firebase Login</Text>
+      <Text style={styles.title}>Finvice Login</Text>
       <TextInput
         style={styles.input}
         value={email}
