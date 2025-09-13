@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "766683757314",
+    "project_id": "finance-advisor-1d922",
+    "storage_bucket": "finance-advisor-1d922.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766683757314:android:1bf932921390cf2f80601b",
+        "android_client_info": {
+          "package_name": "com.saksit_kumkeaw.FinancialApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766683757314-6lpglvcaic81b5t0o3u2pdsbgmv26nui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbpBy3bru3gOqROytRW0tb3DxLhFip5WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766683757314-6lpglvcaic81b5t0o3u2pdsbgmv26nui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
