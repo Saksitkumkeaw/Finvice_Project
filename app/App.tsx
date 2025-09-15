@@ -1,29 +1,27 @@
-import { onAuthStateChanged, User } from "firebase/auth";
-import React, { useEffect, useState } from "react";
-import { Button, Text, View } from "react-native";
-import { auth } from "../src/Authentication/firebaseConfig";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+
 import LoginScreen from "./LoginScreen";
+import RegisterScreen from "./RegisterScreen";
+import HomeScreen from "./home";
 
-const App: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return unsubscribe;
-  }, []);
-
-  if (!user) {
-    return <LoginScreen />;
-  }
-
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Welcome, {user.email}</Text>
-      <Button title="Logout" onPress={() => auth.signOut()} />
-    </View>
-  );
+export type RootStackParamList = {
+  Login: undefined;
+  Register: undefined;
+  Home: undefined;
 };
 
-export default App;
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}

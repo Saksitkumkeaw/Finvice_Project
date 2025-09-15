@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { login } from "../src/Authentication/authService";
@@ -6,13 +6,13 @@ import { login } from "../src/Authentication/authService";
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
+  const navigation = useNavigation();
 
   const handleLogin = async () => {
     try {
       const user = await login(email, password);
       Alert.alert("✅ Login Success", `Welcome ${user.email}`);
-      router.replace("/"); // กลับไปหน้า Home (index.tsx)
+      navigation.navigate("home"); // ไปหน้า Home
     } catch (err: any) {
       Alert.alert("❌ Login Failed", err.message);
     }
@@ -24,7 +24,7 @@ export default function LoginScreen() {
       <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
       <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
       <Button title="Login" onPress={handleLogin} />
-      <Button title="Go to Register" onPress={() => router.push("/RegisterScreen")} />
+      <Button title="Go to Register" onPress={() => navigation.navigate("RegisterScreen")} />
     </View>
   );
 }
